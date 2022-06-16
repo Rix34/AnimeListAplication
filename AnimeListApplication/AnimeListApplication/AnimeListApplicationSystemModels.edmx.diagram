@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8590224e895144c1af5ab1b0c7c9024e" Name="Diagram1">
+        <EntityTypeShape EntityType="AnimeDataBaseModel.Anime" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.AnimeData" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.AnimeList" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.Genre" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.LoginData" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.Note" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.Status" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.Studio" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeDataBaseModel.User" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__Anime__AnimeID__4589517F" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__Anime__LogID__44952D46" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__AnimeData__Genre__336AA144" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__AnimeData__Studi__345EC57D" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__AnimeList__Anime__3B0BC30C" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__AnimeList__NoteI__3CF40B7E" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__AnimeList__Statu__3BFFE745" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeDataBaseModel.FK__Users__LoginID__41B8C09B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

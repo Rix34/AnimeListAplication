@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnimeDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="LogID" Type="int" Nullable="false" />
+          <Property Name="AnimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnimeData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="GenreID" Type="int" Nullable="false" />
+          <Property Name="Aired" Type="date" Nullable="false" />
+          <Property Name="StudioID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnimeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AnimeID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="NoteID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Genre" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nickname" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Note" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Studios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Studio" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SecondName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Anime__AnimeID__4589517F">
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="1" />
+          <End Role="Anime" Type="Self.Anime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnimeList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Anime">
+              <PropertyRef Name="AnimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Anime__LogID__44952D46">
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="1" />
+          <End Role="Anime" Type="Self.Anime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Anime">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeData__Genre__336AA144">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeData">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeData__Studi__345EC57D">
+          <End Role="Studios" Type="Self.Studios" Multiplicity="1" />
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Studios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeData">
+              <PropertyRef Name="StudioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__Anime__3B0BC30C">
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnimeData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="AnimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__NoteI__3CF40B7E">
+          <End Role="Notes" Type="Self.Notes" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="NoteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__Statu__3BFFE745">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__LoginID__41B8C09B">
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimeDataBaseModelStoreContainer">
+          <EntitySet Name="Anime" EntityType="Self.Anime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnimeData" EntityType="Self.AnimeData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnimeList" EntityType="Self.AnimeList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginData" EntityType="Self.LoginData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Studios" EntityType="Self.Studios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Anime__AnimeID__4589517F" Association="Self.FK__Anime__AnimeID__4589517F">
+            <End Role="AnimeList" EntitySet="AnimeList" />
+            <End Role="Anime" EntitySet="Anime" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Anime__LogID__44952D46" Association="Self.FK__Anime__LogID__44952D46">
+            <End Role="LoginData" EntitySet="LoginData" />
+            <End Role="Anime" EntitySet="Anime" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeData__Genre__336AA144" Association="Self.FK__AnimeData__Genre__336AA144">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="AnimeData" EntitySet="AnimeData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeData__Studi__345EC57D" Association="Self.FK__AnimeData__Studi__345EC57D">
+            <End Role="Studios" EntitySet="Studios" />
+            <End Role="AnimeData" EntitySet="AnimeData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__Anime__3B0BC30C" Association="Self.FK__AnimeList__Anime__3B0BC30C">
+            <End Role="AnimeData" EntitySet="AnimeData" />
+            <End Role="AnimeList" EntitySet="AnimeList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__NoteI__3CF40B7E" Association="Self.FK__AnimeList__NoteI__3CF40B7E">
+            <End Role="Notes" EntitySet="Notes" />
+            <End Role="AnimeList" EntitySet="AnimeList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__Statu__3BFFE745" Association="Self.FK__AnimeList__Statu__3BFFE745">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="AnimeList" EntitySet="AnimeList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__LoginID__41B8C09B" Association="Self.FK__Users__LoginID__41B8C09B">
+            <End Role="LoginData" EntitySet="LoginData" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnimeDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="LogID" Type="Int32" Nullable="false" />
+          <Property Name="AnimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AnimeList" Relationship="Self.FK__Anime__AnimeID__4589517F" FromRole="Anime" ToRole="AnimeList" />
+          <NavigationProperty Name="LoginData" Relationship="Self.FK__Anime__LogID__44952D46" FromRole="Anime" ToRole="LoginData" />
+        </EntityType>
+        <EntityType Name="AnimeData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GenreID" Type="Int32" Nullable="false" />
+          <Property Name="Aired" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StudioID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genre" Relationship="Self.FK__AnimeData__Genre__336AA144" FromRole="AnimeData" ToRole="Genres" />
+          <NavigationProperty Name="Studio" Relationship="Self.FK__AnimeData__Studi__345EC57D" FromRole="AnimeData" ToRole="Studios" />
+          <NavigationProperty Name="AnimeLists" Relationship="Self.FK__AnimeList__Anime__3B0BC30C" FromRole="AnimeData" ToRole="AnimeList" />
+        </EntityType>
+        <EntityType Name="AnimeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="AnimeID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="NoteID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Animes" Relationship="Self.FK__Anime__AnimeID__4589517F" FromRole="AnimeList" ToRole="Anime" />
+          <NavigationProperty Name="AnimeData" Relationship="Self.FK__AnimeList__Anime__3B0BC30C" FromRole="AnimeList" ToRole="AnimeData" />
+          <NavigationProperty Name="Note" Relationship="Self.FK__AnimeList__NoteI__3CF40B7E" FromRole="AnimeList" ToRole="Notes" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__AnimeList__Statu__3BFFE745" FromRole="AnimeList" ToRole="Statuses" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Genre1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AnimeDatas" Relationship="Self.FK__AnimeData__Genre__336AA144" FromRole="Genres" ToRole="AnimeData" />
+        </EntityType>
+        <EntityType Name="LoginData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nickname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Animes" Relationship="Self.FK__Anime__LogID__44952D46" FromRole="LoginData" ToRole="Anime" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__LoginID__41B8C09B" FromRole="LoginData" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Note1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AnimeLists" Relationship="Self.FK__AnimeList__NoteI__3CF40B7E" FromRole="Notes" ToRole="AnimeList" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Status1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AnimeLists" Relationship="Self.FK__AnimeList__Statu__3BFFE745" FromRole="Statuses" ToRole="AnimeList" />
+        </EntityType>
+        <EntityType Name="Studio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Studio1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AnimeDatas" Relationship="Self.FK__AnimeData__Studi__345EC57D" FromRole="Studios" ToRole="AnimeData" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecondName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LoginData" Relationship="Self.FK__Users__LoginID__41B8C09B" FromRole="Users" ToRole="LoginData" />
+        </EntityType>
+        <Association Name="FK__Anime__AnimeID__4589517F">
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="1" />
+          <End Role="Anime" Type="Self.Anime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnimeList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Anime">
+              <PropertyRef Name="AnimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Anime__LogID__44952D46">
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="1" />
+          <End Role="Anime" Type="Self.Anime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Anime">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeData__Genre__336AA144">
+          <End Role="Genres" Type="Self.Genre" Multiplicity="1" />
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeData">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeData__Studi__345EC57D">
+          <End Role="Studios" Type="Self.Studio" Multiplicity="1" />
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Studios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeData">
+              <PropertyRef Name="StudioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__Anime__3B0BC30C">
+          <End Role="AnimeData" Type="Self.AnimeData" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnimeData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="AnimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__NoteI__3CF40B7E">
+          <End Role="Notes" Type="Self.Note" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="NoteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnimeList__Statu__3BFFE745">
+          <End Role="Statuses" Type="Self.Status" Multiplicity="1" />
+          <End Role="AnimeList" Type="Self.AnimeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnimeList">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__LoginID__41B8C09B">
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimeDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animes" EntityType="Self.Anime" />
+          <EntitySet Name="AnimeDatas" EntityType="Self.AnimeData" />
+          <EntitySet Name="AnimeLists" EntityType="Self.AnimeList" />
+          <EntitySet Name="Genres" EntityType="Self.Genre" />
+          <EntitySet Name="LoginDatas" EntityType="Self.LoginData" />
+          <EntitySet Name="Notes" EntityType="Self.Note" />
+          <EntitySet Name="Statuses" EntityType="Self.Status" />
+          <EntitySet Name="Studios" EntityType="Self.Studio" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Anime__AnimeID__4589517F" Association="Self.FK__Anime__AnimeID__4589517F">
+            <End Role="AnimeList" EntitySet="AnimeLists" />
+            <End Role="Anime" EntitySet="Animes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Anime__LogID__44952D46" Association="Self.FK__Anime__LogID__44952D46">
+            <End Role="LoginData" EntitySet="LoginDatas" />
+            <End Role="Anime" EntitySet="Animes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeData__Genre__336AA144" Association="Self.FK__AnimeData__Genre__336AA144">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="AnimeData" EntitySet="AnimeDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeData__Studi__345EC57D" Association="Self.FK__AnimeData__Studi__345EC57D">
+            <End Role="Studios" EntitySet="Studios" />
+            <End Role="AnimeData" EntitySet="AnimeDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__Anime__3B0BC30C" Association="Self.FK__AnimeList__Anime__3B0BC30C">
+            <End Role="AnimeData" EntitySet="AnimeDatas" />
+            <End Role="AnimeList" EntitySet="AnimeLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__NoteI__3CF40B7E" Association="Self.FK__AnimeList__NoteI__3CF40B7E">
+            <End Role="Notes" EntitySet="Notes" />
+            <End Role="AnimeList" EntitySet="AnimeLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnimeList__Statu__3BFFE745" Association="Self.FK__AnimeList__Statu__3BFFE745">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="AnimeList" EntitySet="AnimeLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__LoginID__41B8C09B" Association="Self.FK__Users__LoginID__41B8C09B">
+            <End Role="LoginData" EntitySet="LoginDatas" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnimeDataBaseModelStoreContainer" CdmEntityContainer="AnimeDataBaseEntities">
+          <EntitySetMapping Name="Animes">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.Anime">
+              <MappingFragment StoreEntitySet="Anime">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="AnimeID" ColumnName="AnimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnimeDatas">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.AnimeData">
+              <MappingFragment StoreEntitySet="AnimeData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="Aired" ColumnName="Aired" />
+                <ScalarProperty Name="StudioID" ColumnName="StudioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnimeLists">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.AnimeList">
+              <MappingFragment StoreEntitySet="AnimeList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AnimeID" ColumnName="AnimeID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.Genre">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Genre1" ColumnName="Genre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginDatas">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.LoginData">
+              <MappingFragment StoreEntitySet="LoginData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Note1" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.Status">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status1" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Studios">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.Studio">
+              <MappingFragment StoreEntitySet="Studios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Studio1" ColumnName="Studio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AnimeDataBaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
