@@ -96,6 +96,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AnimeListApplicationSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddAnimeToDataBase.xaml.cs">
+      <DependentUpon>AddAnimeToDataBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Completed.xaml.cs">
+      <DependentUpon>Completed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Genre.cs">
       <DependentUpon>AnimeListApplicationSystemModels.tt</DependentUpon>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="Note.cs">
       <DependentUpon>AnimeListApplicationSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dropped.xaml.cs">
+      <DependentUpon>Dropped.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlanToWatch.xaml.cs">
+      <DependentUpon>PlanToWatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>AnimeListApplicationSystemModels.tt</DependentUpon>
@@ -114,6 +126,17 @@
     <Compile Include="User.cs">
       <DependentUpon>AnimeListApplicationSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Watching.xaml.cs">
+      <DependentUpon>Watching.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Pages\AddAnimeToDataBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Completed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +166,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Dropped.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlanToWatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Watching.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -1,0 +1,61 @@
+﻿<Page x:Class="AnimeListApplication.Pages.PlanToWatch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AnimeListApplication.Pages"
+      mc:Ignorable="d" Background="#FF21363E" FontSize="18" 
+      d:DesignHeight="1024" d:DesignWidth="1920"
+      Title="PlanToWatch">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+
+            <ColumnDefinition Width="*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+       
+        <DataGrid x:Name="GridOfAnime" AutoGenerateColumns="True" Grid.Row="2" Grid.Column="2" Grid.RowSpan="6" Grid.ColumnSpan="7"  >
+            <DataGrid.Columns>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <TextBox Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox Text ="Status" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox  Text="Note" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBlock  Text="PLAN TO WATCH" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+        <Button Content ="Usuń Anime Z Listy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20"/>
+        <Button Content ="Dodaj Anime Do Listy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20"/>
+
+    </Grid>
+</Page>

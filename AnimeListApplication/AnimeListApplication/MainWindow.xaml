@@ -11,8 +11,15 @@
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+
             <ColumnDefinition Width="*"/>
 
 
@@ -20,15 +27,21 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="100"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-
-        <DockPanel Grid.ColumnSpan="5" Grid.Column="0">
+        
+        <DockPanel Grid.ColumnSpan="10" Grid.Column="0">
             <Menu DockPanel.Dock="Top" Background="Gray" FontSize="26" FontWeight="Bold" >
 
                 <MenuItem Header="_Account" >
@@ -36,12 +49,18 @@
                 </MenuItem>
 
             </Menu>
+            
+            
         </DockPanel>
-        <DataGrid x:Name="GridOfAnime" AutoGenerateColumns="True" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="2"  >
-            <DataGrid.Columns>
+        <TextBox Text="Witaj Użytkowniku" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" FontSize="36" /> 
+        <Button Content ="Watching" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="20" Click="MainToWatching"/>
+        <Button Content ="Completed" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="20" Click="MainToWatched"/>
+        <Button Content ="Plan TO Watch" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="20" Click="MainToPlanToWatch"/>
+        <Button Content ="Dropped" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="20" Click="MainToDropped"/>
+        <Button  Content ="AnimeDataBase" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Margin="20" Click="MainToAnimeDataBase"/>
+        <Image Source="C:\Users\Msi\Downloads\omg.png"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20"/>
+        <Frame x:Name="Main" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="9"  NavigationUIVisibility="Hidden"/>
 
-            </DataGrid.Columns>
 
-        </DataGrid>
     </Grid>
 </Window>

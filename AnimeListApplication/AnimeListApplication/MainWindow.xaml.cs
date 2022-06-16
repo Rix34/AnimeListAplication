@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeListApplication.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace AnimeListApplication
         public MainWindow()
         {
             InitializeComponent();
+            //AnimeDataBaseEntities db = new AnimeDataBaseEntities();
+
+            //var anim = from a in db.AnimeDatas
+            //           select a;
+
+            //this.GridOfAnime.ItemsSource = anim.ToList();
         }
 
 
@@ -32,6 +39,31 @@ namespace AnimeListApplication
             login.Show();
             this.Close();
 
+        }
+
+        private void MainToWatching(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Watching();
+        }
+
+        private void MainToWatched(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Completed();
+        }
+
+        private void MainToPlanToWatch(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PlanToWatch();
+        }
+
+        private void MainToDropped(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Dropped();
+        }
+
+        private void MainToAnimeDataBase(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AddAnimeToDataBase();
         }
     }
 }
