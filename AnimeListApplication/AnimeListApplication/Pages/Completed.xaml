@@ -7,7 +7,28 @@
       mc:Ignorable="d" Background="#FF21363E" FontSize="18" 
       d:DesignHeight="1024" d:DesignWidth="1920"
       Title="Completed">
+    <Page.Resources>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#ff2c3e50"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
 
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalGridLinesBrush" Value="#4b6584"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#4b6584"/>
+            <Setter Property="AlternatingRowBackground" Value="#ff2c3e50"/>
+            <Setter Property="RowBackground" Value="#34495e"/>
+            <Setter Property="RowHeight" Value="25"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
 
@@ -48,12 +69,12 @@
 
         </DataGrid>
 
-        <TextBox Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox Text ="Status" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox  Text="Note" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBlock  Text="Completed" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
-        <Button Content ="Usuń Anime Z Listy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20"/>
-        <Button Content ="Dodaj Anime Do Listy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox FontWeight="Bold" Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox FontWeight="Bold" Text ="Status" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox FontWeight="Bold" Text="Note" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBlock FontWeight="Bold" Text="Completed" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="White"/>
+        <Button FontWeight="Bold" Content ="Usuń Anime Z Listy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20"/>
+        <Button FontWeight="Bold" Content ="Dodaj Anime Do Listy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20"/>
 
     </Grid>
 </Page>

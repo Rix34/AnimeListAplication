@@ -7,6 +7,28 @@
       mc:Ignorable="d" Background="#FF21363E" FontSize="18" 
       d:DesignHeight="1080" d:DesignWidth="1924"
       Title="AddAnimeToDataBase">
+    <Page.Resources>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#ff2c3e50"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+
+        </Style>
+        
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalGridLinesBrush" Value="#4b6584"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#4b6584"/>
+            <Setter Property="AlternatingRowBackground" Value="#ff2c3e50"/>
+            <Setter Property="RowBackground" Value="#34495e"/>
+            <Setter Property="RowHeight" Value="25"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -47,15 +69,15 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBox x:Name="thxtID" Text ="ID" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox x:Name="thxtTitle" Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox x:Name="thxtGenre" Text ="Genre" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox x:Name="thxtAired" Text="Aired" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox  x:Name="thxtStudio" Text="Studio" Grid.Row="5" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBlock  Text="DataBase" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
-        <Button x:Name="DeleteFDB" Content ="Usuń Anime Z Bazy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20" Click="DTAFDB"/>
-        <Button x:Name="AddToDB" Content ="Dodaj Anime Do Bazy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20" Click="ADDADB"/>
-        <Button x:Name="Refre" Content ="Refresh" Grid.Row="1" Grid.Column="8"  Grid.ColumnSpan="2" Margin="20" Click="Refresh"/>
+        <TextBox x:Name="thxtID" FontWeight="Bold" Text ="ID" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox x:Name="thxtTitle" FontWeight="Bold" Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox x:Name="thxtGenre" FontWeight="Bold" Text ="Genre" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox x:Name="thxtAired" FontWeight="Bold" Text="Aired" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox  x:Name="thxtStudio" FontWeight="Bold" Text="Studio" Grid.Row="5" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBlock  Text="DataBase" Grid.Row="1" FontWeight="Bold"  Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="White" />
+        <Button x:Name="DeleteFDB" FontWeight="Bold" Content ="Usuń Anime Z Bazy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20" Click="DTAFDB"/>
+        <Button x:Name="AddToDB"  FontWeight="Bold" Content ="Dodaj Anime Do Bazy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20" Click="ADDADB"/>
+        <Button x:Name="Refre" FontWeight="Bold" Content ="Refresh" Grid.Row="1" Grid.Column="8"  Grid.ColumnSpan="2" Margin="20" Click="Refresh"/>
 
     </Grid>
 </Page>
