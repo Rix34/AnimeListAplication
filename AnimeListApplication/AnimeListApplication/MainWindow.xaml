@@ -59,7 +59,7 @@
         <Button Content ="Plan TO Watch" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="20" Click="MainToPlanToWatch"/>
         <Button Content ="Dropped" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="20" Click="MainToDropped"/>
         <Button  Content ="AnimeDataBase" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Margin="20" Click="MainToAnimeDataBase"/>
-        <Image Source="C:\Users\Msi\Downloads\omg.png"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20"/>
+        <Image Source="Images/omg.png"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20"/>
         <Frame x:Name="Main" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="9"  NavigationUIVisibility="Hidden"/>
 
 

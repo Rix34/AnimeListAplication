@@ -26,7 +26,7 @@
 
         </Grid.RowDefinitions>
         <Separator Grid.Row=" 0" Grid.Column ="1" Grid.ColumnSpan="2"/>
-        <Image Grid.Row="0" Grid.Column ="0" Source="C:\Users\Msi\Downloads\omg.png" Width="200" HorizontalAlignment="Left"/>
+        <Image Grid.Row="0" Grid.Column ="0" Source="Images/omg.png" Width="200" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="0" Grid.Column ="1" FontSize="64" FontWeight="Bold" HorizontalAlignment="Center" Text="Logowanie:" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Row="1" Grid.Column ="1"  Text="Nickname: " Margin = "0,0,0,20" />
         <TextBlock Grid.Row="2" Grid.Column ="1"  Text="Password: " Margin = "0,0,0,20"/>
