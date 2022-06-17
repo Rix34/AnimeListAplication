@@ -62,8 +62,8 @@
 
         </Grid.RowDefinitions>
 
-      
-        <DataGrid x:Name="GridOfAnime" AutoGenerateColumns="True" Grid.Row="2" Grid.Column="2" Grid.RowSpan="6" Grid.ColumnSpan="7"  >
+
+        <DataGrid x:Name="GridOfAnime" AutoGenerateColumns="True" Grid.Row="2" Grid.Column="2" Grid.RowSpan="6" Grid.ColumnSpan="7" SelectionChanged="GridOfAnime_SelectionChanged"  >
             <DataGrid.Columns>
 
             </DataGrid.Columns>
@@ -78,6 +78,6 @@
         <Button x:Name="DeleteFDB" FontWeight="Bold" Content ="Usuń Anime Z Bazy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20" Click="DTAFDB"/>
         <Button x:Name="AddToDB"  FontWeight="Bold" Content ="Dodaj Anime Do Bazy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20" Click="ADDADB"/>
         <Button x:Name="Refre" FontWeight="Bold" Content ="Refresh" Grid.Row="1" Grid.Column="8"  Grid.ColumnSpan="2" Margin="20" Click="Refresh"/>
-
+        <Button x:Name="Updi" FontWeight="Bold" Content ="Update" Grid.Row="1" Grid.Column="6"  Grid.ColumnSpan="2" Margin="20" Click="UpdatButton"/>
     </Grid>
 </Page>

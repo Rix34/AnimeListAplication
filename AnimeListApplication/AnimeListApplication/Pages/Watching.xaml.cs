@@ -26,14 +26,35 @@ namespace AnimeListApplication
 
             AnimeDataBaseEntities db = new AnimeDataBaseEntities();
 
-            var anim = from a in db.LoginDatas
+            var anim = from a in db.Animes
                        select new
                        {
-                           Nick = a.Nickname,
-                           Pass = a.Password
+                           User = a.LoginData.Nickname,
+                           Title = a.AnimeList.AnimeData.Title,
+                           Studio = a.AnimeList.AnimeData.StudioID,
+                           Status = a.AnimeList.StatusID,
+                           Note = a.AnimeList.NoteID,
+
                        };
 
             this.GridOfAnime.ItemsSource = anim.ToList();
         }
+
+
+        //private void ADDADB(object sender, RoutedEventArgs e)
+        //{
+        //    AnimeDataBaseEntities db = new AnimeDataBaseEntities();
+
+        //    Anime anims = new Anime()
+        //    {
+        //        Id = Int32.Parse(thxtTitle.Text),
+        //        LogID = Int32.Parse(thxtStatus.Text),
+        //        AnimeID = Int32.Parse(thxtNote.Text),
+            
+        //    };
+        //    db.Animes.Add(anims);
+        //    db.SaveChanges();
+
+        //}
     }
 }

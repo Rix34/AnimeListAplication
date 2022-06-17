@@ -69,12 +69,12 @@
 
         </DataGrid>
 
-        <TextBox FontWeight="Bold" Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox FontWeight="Bold" Text ="Status" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
-        <TextBox  FontWeight="Bold" Text="Note" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox  x:Name="thxtTitle" FontWeight="Bold" Text ="ID" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox  x:Name="thxtStatus" FontWeight="Bold" Text ="LogID" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
+        <TextBox  x:Name="thxtNote" FontWeight="Bold" Text="AnimeID" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>
         <TextBlock  FontWeight="Bold" Text="WATCHING" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="White"/>
         <Button FontWeight="Bold" Content ="Usuń Anime Z Listy" Grid.Row="6" Grid.ColumnSpan="2" Margin="20"/>
-        <Button FontWeight="Bold" Content ="Dodaj Anime Do Listy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20"/>
+        <Button  x:Name="AddButton" FontWeight="Bold" Content ="Dodaj Anime Do Listy" Grid.Row="7" Grid.ColumnSpan="2" Margin="20"  />
 
     </Grid>
 </Page>

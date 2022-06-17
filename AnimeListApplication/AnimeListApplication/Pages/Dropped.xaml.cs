@@ -25,12 +25,12 @@ namespace AnimeListApplication.Pages
             InitializeComponent();
             AnimeDataBaseEntities db = new AnimeDataBaseEntities();
 
-            var anim = from a in db.AnimeLists
+            var anim = from a in db.Genres
                        select new
                        {
-                           Title = a.AnimeData.Title,
-                           Status = a.Status.Status1,
-                           Note = a.Note.Note1,
+                           Genre = a.Genre1,
+                           ID = a.Id,
+                         
                        };
 
             this.GridOfAnime.ItemsSource = anim.ToList();
