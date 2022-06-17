@@ -25,8 +25,14 @@ namespace AnimeListApplication
             InitializeComponent();
             AnimeDataBaseEntities db = new AnimeDataBaseEntities();
 
-            var anim = from a in db.Animes
-                       select a;
+            var anim = from a in db.Users
+                       select new
+                       {
+                           FirstName = a.FirstName,
+                           Status = a.SecondName,
+                           Login = a.LoginData.Nickname,
+                           Password = a.LoginData.Password,
+                       };
 
             this.GridOfAnime.ItemsSource = anim.ToList();
         }

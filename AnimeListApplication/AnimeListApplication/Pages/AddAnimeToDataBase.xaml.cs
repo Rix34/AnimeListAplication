@@ -27,12 +27,55 @@ namespace AnimeListApplication.Pages
             AnimeDataBaseEntities db = new AnimeDataBaseEntities();
 
             var anim = from a in db.AnimeDatas
-                       select a;
+                       select new
+                       {
+                           Image = a.Image,
+                           Title = a.Title,
+                           Genre = a.Genre.Genre1,
+                           Aired = a.Aired,
+                           Studio = a.Studio.Studio1,
+                       };
 
             this.GridOfAnime.ItemsSource = anim.ToList();
         }
 
-   
+
+
+        private void ADDADB(object sender, RoutedEventArgs e)
+        {
+            AnimeDataBaseEntities db = new AnimeDataBaseEntities();
+
+            AnimeData animeData = new AnimeData()
+            {
+                Title = thxtTitle.Text,
+                GenreID = Int32.Parse(thxtGenre.Text),
+                Aired = DateTime.Parse(thxtAired.Text),
+                StudioID = Int32.Parse(thxtStudio.Text),
+            };
+            db.AnimeDatas.Add(animeData);
+            db.SaveChanges();
+
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            AnimeDataBaseEntities db = new AnimeDataBaseEntities();
+            var anim = from a in db.AnimeDatas
+                       select new
+                       {
+                           Image = a.Image,
+                           Title = a.Title,
+                           Genre = a.Genre.Genre1,
+                           Aired = a.Aired,
+                           Studio = a.Studio.Studio1,
+                       };
+            this.GridOfAnime.ItemsSource = anim.ToList();
+        }
+
+        private void DTAFDB(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 
