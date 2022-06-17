@@ -47,7 +47,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-
+        <TextBox x:Name="thxtID" Text ="ID" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
         <TextBox x:Name="thxtTitle" Text ="Title" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"/>
         <TextBox x:Name="thxtGenre" Text ="Genre" Grid.Row="3" Grid.ColumnSpan="2" Margin="20"/>
         <TextBox x:Name="thxtAired" Text="Aired" Grid.Row="4" Grid.ColumnSpan="2" Margin="20"/>

@@ -29,6 +29,7 @@ namespace AnimeListApplication.Pages
             var anim = from a in db.AnimeDatas
                        select new
                        {
+                           ID = a.Id,
                            Image = a.Image,
                            Title = a.Title,
                            Genre = a.Genre.Genre1,
@@ -47,6 +48,7 @@ namespace AnimeListApplication.Pages
 
             AnimeData animeData = new AnimeData()
             {
+                Id = Int32.Parse(thxtID.Text),
                 Title = thxtTitle.Text,
                 GenreID = Int32.Parse(thxtGenre.Text),
                 Aired = DateTime.Parse(thxtAired.Text),
@@ -63,6 +65,7 @@ namespace AnimeListApplication.Pages
             var anim = from a in db.AnimeDatas
                        select new
                        {
+                           ID = a.Id,
                            Image = a.Image,
                            Title = a.Title,
                            Genre = a.Genre.Genre1,
